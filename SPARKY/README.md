@@ -18,3 +18,4 @@
   * This does not matter for the digital signature.  The key aspects are the first 9 characters and the 14th.  The first 144 bytes are all single-byte characters.
 * Representative files only contain the first 1024 bytes.
 * The header portions may differ between 32-bit and 64-bit versions.  This has yet to be examined.  However, first 9 characters and the 13th should be the same.
+* There are legacy versions 0 and 1 of the Sparky file format.  As of Oct. 2018, we do not have any examples of such files (although the format is documented in the Sparky source code.)
