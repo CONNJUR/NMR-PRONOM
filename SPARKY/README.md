@@ -8,5 +8,5 @@
 | Extensions    | No formal extension; however, it is common to use `.ucsf` |
 | Mime Types    | None |
 | Official Documentation    | http://www.cgl.ucsf.edu/home/sparky/ <BR> http://www.nmrfam.wisc.edu/nmrfam-sparky-distribution.htm |
-| Identification Signature    | The first 9 bytes are the null-terminated string 'UCSF NMR'.  <BR> This can be verified with the bash command `head -c 9 filename` <BR> In addition, the 13th byte should be the number 2 (unsigned char, for version 2). |
+| Identification Signature    | The first 9 bytes are the null-terminated string 'UCSF NMR'.  <BR> This can be verified with the bash command `head -c 9 filename` <BR> In addition, the 13th byte should be the number 2 (unsigned char, for version 2). <BR> Other details in Format Details |
 | Representative Files    | To be added |
