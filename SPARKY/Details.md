@@ -123,3 +123,51 @@ For each axis of the spectrum there is a 128 byte header of the following form:
 |32-35 | 4	 | 	 | float  | zero_order 	 | phase correction  (unknown units)  |
 |35-39 | 4	 | 	 | float   | first_order 		 | phase correction  (unknown units)  |
 |40-43 | 4	 | 	 | float  | first_pt_scale	 | scaling for first point  |
+| 28-31	  | 4	  | 	| float        		| xmtr_freq 			| center of data (ppm)       |
+| 32-35	  | 4	  | 	| float        		| zero_order 			| phase correction  (unknown units)       |  
+| 35-39	  | 4	  | 	| float        		| first_order 			| phase correction  (unknown units)       |  
+| 40-43	  | 4	  | 	| float        		| first_pt_scale		| scaling for first point     |            
+| 44-47	  | 4	  | 1	| unsigned int		| status.transformed 		|             | 
+| 	  | 	  | 1	| unsigned int  	| status.base_corrected		|          |       
+| 	  | 	  | 14	| unsigned int  	| status.reserved 		|   |
+| 48-51	  | 4	  | 2	| unsigned int		| flags.fid.convolution 	|   |
+| 	  | 	  | 1	| unsigned int		| flags.fid.dc_offset 		| |
+| 	  | 	  | 1	| unsigned int		| flags.fid.forward_extend 	| |
+| 	  | 	  | 1	| unsigned int		| flags.fid.backward_extend 	| |
+| 	  | 	  | 2	| unsigned int		| flags.fid.replace 	 	| |
+| 	  | 	  | 4	| unsigned int		| flags.fid.apodization 	| |
+| 	  | 	  | 2	| unsigned int		| flags.fid.ft_code 	 	| |
+| 	  | 	  | 4	| unsigned int		| flags.fid.nfills 		| |
+| 	  | 	  | 1	| unsigned int		| flags.fid.absolute_value 	| |
+| 	  | 	  | 1	| unsigned int		| flags.fid.spectrum_reverse 	| |
+| 	  | 	  | 1	| unsigned int		| flags.fid.baseline_offset 	| |
+| 	  | 	  | 2	| unsigned int		| flags.fid.baseline_fit 	| |
+| 	  | 	  | 10	| unsigned int		| flags.fid.reserved 		| |
+| 52-53	  | 2	  | 	| short			| conv.width			|  half width of window |
+| 54-55    | 2	  | 	| short			| conv.extrapolation		|  # points at ends to extrapolate   |     
+| 56-59    | 4	  | 	| float        		| apo.p1.shift 			|  union.  Alt float p2.gaussian |
+| 60-63    | 4	  | 	| float        		| apo.p1.line_broad		|  union.  Alt unused |
+| 64-67    | 4	  | 	| unsigned int		| forward.start			| |
+| 68-69    | 2	  | 	| unsigned short	| forward.poly_order		| |
+| 70-71    | 2	  | 	| unsigned short	| forward.npredicted		| |
+| 72-73    | 2	  | 	| unsigned short	| forward.npoints		| |
+| 74-75    | 4	  | 	| unsigned int		| backwards.start		| |
+| 76-79    | 2	  | 	| unsigned short	| backwards.poly_order		| |
+| 80-81    | 2	  | 	| unsigned short	| backwards.npredicted		| |
+| 82-83    | 2	  | 	| unsigned short	| backwards.npoints		| |
+| 84-87    | 4	  | 	| unsigned int		| replace.before_start		| |
+| 88-91    | 4	  | 	| unsigned int		| replace.after_start		| |
+| 92-95    | 4	  | 	| unsigned int		| replace.first			| |
+| 96-97    | 2	  | 	| unsigned short	| replace.npredicted		| |
+| 98-99    | 2	  | 	| unsigned short	| replace.poly_order		| |
+| 100-101  | 2	  | 	| unsigned short	| replace.before_npoints	| |
+| 102-103  | 2	  | 	| unsigned short	| replace.after_npoints		| |
+| 104-107  | 4	  | 	| unsigned int		| base_offset.start		| |
+| 108-111  | 4	  | 	| unsigned int		| base_offset.end		| |
+| 112-115  | 4	  | 	| unsigned int		| base_fit.solvent_start	| |
+| 116-117  | 2	  | 	| unsigned short	| base_fit.poly_order		| |
+| 118-119  | 2	  | 	| unsigned short	| base_fit.solvent_width	| |
+| 120-123  | 4	  | 	| void* pointer 	| unused			|               |               
+| 124-127  | 4	  | 	| ----                  | byte padding                  |    |   
+
+In the source code of Sparky, it is mentioned that the processing parameters for each axis are only included as legacy data from an older processing program called Striker. In Aug 2018, gryk converted two nmrPipe files to Sparky format using pipe2ucsf. Even though the processing parameters were stored in the nmrPipe header, the Sparky header was filled with all 0's. Thus, it appears that this header data is actually 'superfluous junk'. In principle, we could have CONNJUR Spectrum Translator convert nmrPipe to Sparky and set this metadata. However, since Striker is obsolete, such metadata would not be useful for it's intended purpose. For now, gryk is in favor of ignoring this metadata completely. 
