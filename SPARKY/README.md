@@ -10,6 +10,8 @@
 | Official Documentation    | http://www.cgl.ucsf.edu/home/sparky/ <BR> http://www.nmrfam.wisc.edu/nmrfam-sparky-distribution.htm |
 | Identification Signature    | The first 9 bytes are the null-terminated string 'UCSF NMR'.  <BR> This can be verified with the bash command `head -c 9 filename` <BR> In addition, the 14th byte should be the number 2 (unsigned char, for version 2). <BR> Other details in Format Details |
 | Representative Files    | [ Example Files ](example-files) |
+| Structure | Binary, with metadata embedded in a header that can be rendered human-readable by specialized software tools |
+| Primary field of use | Nuclear Magnetic Resonance (NMR) Spectrsoscopy, particularly spectral analysis |
 
 ## Important Points
 
