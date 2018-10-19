@@ -1,4 +1,4 @@
-# NMRView File Format =
+# NMRView File Format
 
 From [NMRView Documentation](http://docs.nmrfx.org/processor/files/fformat):
 
