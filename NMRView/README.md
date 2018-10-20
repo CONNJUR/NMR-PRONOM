@@ -8,7 +8,7 @@
 | Extensions    | `.nv` |
 | Mime Types    | None |
 | Official Documentation    | http://docs.nmrfx.org/processor/files/fformat |
-| Identification Signature    | The first 4 bytes should be the integer 874032077.  If the Endianness is reversed, it will be the number -844425164. |
+| Identification Signature    | The first 4 bytes should be the integer 874032077.  If the Endianness is reversed, it will be the number -844425164. <BR> This can be verified with the bash command `xxd -ps -l 4 filename`.  Big Endian returns hex of 3418abcd.  Little Endian returns hex of cdab1834.  |
 | Representative Files    | [ Example Files ](example-files) |
 | Structure | Binary, with metadata embedded in a header that can be rendered human-readable by specialized software tools |
 | Primary field of use | Nuclear Magnetic Resonance (NMR) Spectrsoscopy, particularly spectral analysis |
