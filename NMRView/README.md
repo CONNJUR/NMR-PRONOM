@@ -3,7 +3,7 @@
 | Key   | Value  |
 | --- | --- |
 | Format Name   | NMRView  |
-| Version   | ? |
+| Version   | 0 |
 | Description   | NMRView is a graphical NMR assignment and integration program for proteins, nucleic acids, and other polymers. |
 | Extensions    | `.nv` |
 | Mime Types    | None |
