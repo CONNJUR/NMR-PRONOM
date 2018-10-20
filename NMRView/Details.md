@@ -1,10 +1,10 @@
-# NMRView File Format =
+# NMRView File Format
 
 From [NMRView Documentation](http://docs.nmrfx.org/processor/files/fformat):
 
 NMRViewJ/NMRFx files consist of a header at the beginning of the file followed by the actual data values in a sub-matrix format. The header describes the layout of the file and reference information. The file can be tested to see if is an NMRview/NMRFx file by reading the first 4 bytes.
-This should represent an integer with value equal to '''874032077'''.
-Files are normally stored with integer and floating point values in big-endian, but can be in little-endian format. The endianness can be tested by checking which mode gives the magic value as 874032077.
+This should represent an integer with value equal to **874032077**.
+Files are normally stored with integer and floating point values in big-endian, but can be in little-endian format. The endianness can be tested by checking which mode gives the magic value as 874032077.  The wrong endian will give the value -844425164.
 
 The first section of the header (typically first 1024 bytes) stores information about the entire file.
 
